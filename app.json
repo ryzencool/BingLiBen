@@ -18,16 +18,46 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "$(PRODUCT_NAME) needs access to your Camera."
+      },
+      "bundleIdentifier": "com.zmyjust.BingLiBen"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ],
+      "package": "com.zmyjust.BingLiBen"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [ [
+      "expo-media-library",
+      {
+        "photosPermission": "Allow ${PRODUCT_NAME} to access your photos",
+        "savePhotosPermission": "Allow ${PRODUCT_NAME} to save photos",
+        "isAccessMediaLocationEnabled": "true"
+      }
+    ],
+
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera.",
+          "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "bc6f82a0-14c9-474e-839a-9f5ebda83c4a"
+      }
     }
   }
 }
